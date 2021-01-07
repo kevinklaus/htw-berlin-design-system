@@ -1,8 +1,9 @@
-import React from 'react';
-import styled from 'styled-components';
-import { Button } from './Button';
-import { Icon } from './Icon';
-import { StoryLinkWrapper } from './StoryLinkWrapper';
+import React from "react";
+import styled from "styled-components";
+import { Button } from "./Button";
+import { Icon } from "./Icon";
+import { StoryLinkWrapper } from "./StoryLinkWrapper";
+import { action } from "@storybook/addon-actions";
 
 const CustomButton = styled.button`
   border: 1px solid green;
@@ -12,69 +13,100 @@ const CustomButton = styled.button`
   font-size: 1.2em;
 `;
 
+// When the user clicks a button, it will trigger the `action()`,
+// ultimately showing up in Storybook's addon panel.
 function ButtonWrapper(props) {
   return <CustomButton {...props} />;
 }
 
+const onButtonClick = action("onButtonClick");
+
 export default {
-  title: 'Design System/Button',
+  title: "Design System/Button",
   component: Button,
 };
 
 export const AllButtons = (args) => (
   <div>
-    <Button appearance="primary">Primary</Button>
-    <Button appearance="secondary">Secondary</Button>
-    <Button appearance="tertiary">Tertiary</Button>
-    <Button appearance="outline">Outline</Button>
-    <Button appearance="primaryOutline">Outline primary</Button>
-    <Button appearance="secondaryOutline">Outline secondary</Button>
-    <Button appearance="primary" isDisabled>
+    <Button onClick={onButtonClick} appearance="primary">
+      Primary
+    </Button>
+    <Button onClick={onButtonClick} appearance="secondary">
+      Secondary
+    </Button>
+    <Button onClick={onButtonClick} appearance="tertiary">
+      Tertiary
+    </Button>
+    <Button onClick={onButtonClick} appearance="outline">
+      Outline
+    </Button>
+    <Button onClick={onButtonClick} appearance="primaryOutline">
+      Outline primary
+    </Button>
+    <Button onClick={onButtonClick} appearance="secondaryOutline">
+      Outline secondary
+    </Button>
+    <Button onClick={onButtonClick} appearance="primary" isDisabled>
       Disabled
     </Button>
     <br />
-    <Button appearance="primary" isLoading>
+    <Button onClick={onButtonClick} appearance="primary" isLoading>
       Primary
     </Button>
-    <Button appearance="secondary" isLoading>
+    <Button onClick={onButtonClick} appearance="secondary" isLoading>
       Secondary
     </Button>
-    <Button appearance="tertiary" isLoading>
+    <Button onClick={onButtonClick} appearance="tertiary" isLoading>
       Tertiary
     </Button>
-    <Button appearance="outline" isLoading>
+    <Button onClick={onButtonClick} appearance="outline" isLoading>
       Outline
     </Button>
-    <Button appearance="outline" isLoading loadingText="Custom...">
+    <Button
+      onClick={onButtonClick}
+      appearance="outline"
+      isLoading
+      loadingText="Custom..."
+    >
       Outline
     </Button>
     <br />
-    <Button appearance="primary" size="small">
+    <Button onClick={onButtonClick} appearance="primary" size="small">
       Primary
     </Button>
-    <Button appearance="secondary" size="small">
+    <Button onClick={onButtonClick} appearance="secondary" size="small">
       Secondary
     </Button>
-    <Button appearance="tertiary" size="small">
+    <Button onClick={onButtonClick} appearance="tertiary" size="small">
       Tertiary
     </Button>
-    <Button appearance="outline" size="small">
+    <Button onClick={onButtonClick} appearance="outline" size="small">
       Outline
     </Button>
-    <Button appearance="primary" isDisabled size="small">
+    <Button
+      onClick={onButtonClick}
+      appearance="primary"
+      isDisabled
+      size="small"
+    >
       Disabled
     </Button>
-    <Button appearance="outline" size="small" containsIcon>
+    <Button
+      onClick={onButtonClick}
+      appearance="outline"
+      size="small"
+      containsIcon
+    >
       <Icon icon="link" aria-label="Link" />
     </Button>
-    <Button appearance="outline" size="small">
+    <Button onClick={onButtonClick} appearance="outline" size="small">
       <Icon icon="link" />
       Link
     </Button>
   </div>
 );
 
-AllButtons.storyName = 'all buttons';
+AllButtons.storyName = "all buttons";
 
 export const buttonWrapper = (args) => (
   <div>
@@ -158,7 +190,7 @@ export const buttonWrapper = (args) => (
   </div>
 );
 
-buttonWrapper.storyName = 'button wrapper';
+buttonWrapper.storyName = "button wrapper";
 
 export const AnchorWrapper = (args) => (
   <div>
@@ -321,4 +353,4 @@ export const AnchorWrapper = (args) => (
   </div>
 );
 
-AnchorWrapper.storyName = 'anchor wrapper';
+AnchorWrapper.storyName = "anchor wrapper";
