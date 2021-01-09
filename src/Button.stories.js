@@ -4,6 +4,7 @@ import { Button } from "./Button";
 import { Icon } from "./Icon";
 import { StoryLinkWrapper } from "./StoryLinkWrapper";
 import { action } from "@storybook/addon-actions";
+import { withDesign } from "storybook-addon-designs";
 
 const CustomButton = styled.button`
   border: 1px solid green;
@@ -24,6 +25,7 @@ const onButtonClick = action("onButtonClick");
 export default {
   title: "Design System/Button",
   component: Button,
+  decorators: [withDesign],
 };
 
 export const AllButtons = (args) => (
@@ -107,6 +109,14 @@ export const AllButtons = (args) => (
 );
 
 AllButtons.storyName = "all buttons";
+
+AllButtons.parameters = {
+  design: {
+    type: "figma",
+    url:
+      "https://www.figma.com/file/3G68UamepjyuhaTgi6knvD/HTW-Berlin-Design-System?node-id=178%3A6",
+  },
+};
 
 export const buttonWrapper = (args) => (
   <div>
