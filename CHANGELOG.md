@@ -4,4 +4,12 @@
 
 #### Authors: 1
 
-- Tom Coleman ([@tmeasday](https://github.com/tmeasday))
+- Kevin Klaus ([@kevinklaus](https://github.com/kevinklaus))
+
+# v1.0.0 (Mon Jan 11 2020)
+
+- Publish Design Sytstem to NPM
+
+#### Authors: 1
+
+- Kevin Klaus ([@kevinklaus](https://github.com/kevinklaus))
